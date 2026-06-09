@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<script>
+/* Tilgangssperre — sender til den låste forsiden hvis økten ikke er låst opp.
+   Kjører synkront før innhold tegnes. Passordet lagres aldri her;
+   bare PBKDF2-hashen på forsiden kan sette dette flagget. */
+(function(){
+  var H="279ceb120758aa63076d65e8050cab1aab8d401816f03d98b50926a98b7e20af";
+  try{ if(sessionStorage.getItem("peab-auth")===H) return; }catch(e){}
+  location.replace("index.html");
+})();
+</script>
+<title>Lean Communications — for PEAB Bygg & PEAB Eiendomsutvikling</title>
+<meta name="description" content="Hvem Lean Communications er, og hva vi kan tilby PEAB Bygg og PEAB Eiendomsutvikling: kompetanseutvikling, coaching og strategisk partnerskap rundt VDC, takt, samspill og dynamisk kalkyle.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,500;1,700&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles-main.css">
+</head>
+<body>
+
+<nav aria-label="Meny">
+  <div class="wrap">
+    <img class="logo" src="assets/logo-lc.png" alt="Lean Communications">
+    <div class="links">
+      <a href="#kaffeprat" data-sec="kaffeprat">Kaffepraten</a>
+      <a href="#omlean" data-sec="omlean">Om Lean</a>
+      <a href="#tjenester" data-sec="tjenester">Tjenester</a>
+      <a href="#metoden" data-sec="metoden">Metoden</a>
+      <a href="#bevis" data-sec="bevis">Bevis</a>
+      <a href="#kontakt" data-sec="kontakt">Kontakt</a>
+      <button class="logout-btn" id="logout" type="button">
+        <svg viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 17l5-5-5-5M21 12H9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>Logg ut</span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Kaffeprat · PEAB Bygg &amp; PEAB Eiendomsutvikling</div>
+    <h1>Takk for praten — her er hvordan vi kan jobbe <span class="g">sammen</span></h1>
+    <p class="sub">En liten oppsummering av hvem vi er i <b>Lean Communications</b>, og hva vi kan tilby PEAB av tjenester og metoder. Tenk på den som utgangspunktet for neste prat — ikke en ferdig pakke.</p>
+    <div class="chips">
+      <span class="chip"><b>Til</b><span>Ledelsen i PEAB Bygg &amp; PEAB Eiendomsutvikling</span></span>
+      <span class="chip"><b>Fra</b><span>Øyvind Børstad &amp; Bjørn Einar Aga · Lean Communications</span></span>
+      <span class="chip"><b>Etter</b><span>To timers kaffeprat</span></span>
+    </div>
+    <div class="heroband">
+      <div class="frame">
+        <image-slot id="peab-hero" shape="rounded" radius="12" src="assets/peab-vinter.png" placeholder="Slipp inn et bilde fra et PEAB-prosjekt"></image-slot>
+      </div>
+      <p class="cap">Et av prosjektene deres — vi vil ikke endre hva dere bygger, men hjelpe dere å bygge det enda smartere. (Dra gjerne inn et annet bilde.)</p>
+    </div>
+  </div>
+</header>
+
+<!-- KAFFEPRATEN -->
+<section id="kaffeprat">
+  <div class="wrap rv">
+    <div class="eyebrow">Etter kaffepraten</div>
+    <h2 class="sec">Det vi snakket om <span class="g">over kaffen</span></h2>
+    <div class="intro-grid">
+      <div>
+        <p>Vi satte oss ned i to timer og snakket om hvordan PEAB jobber i dag, og hvor dere vil. Det ble en god prat — om arbeidsmetodikk, om samspill, om kultur, og om hvordan man får hele organisasjonen med på en ny måte å bygge på.</p>
+        <p>Denne siden er rett og slett en måte å sende over det vi nevnte, slik at dere kan se det i ro og mak. Den følger samme tråd som praten: <b>hvem vi er</b>, <b>de tre måtene vi kan jobbe med dere på</b>, og <b>metoden og verktøyene</b> som ligger under.</p>
+        <p>Det er ingenting her som er hugget i stein. Vi tilpasser oss alltid prosjektet og organisasjonen — så les den som en invitasjon til å ta praten videre.</p>
+      </div>
+      <aside class="sidecard">
+        <div class="sk">På denne siden</div>
+        <ul>
+          <li>Hvem Lean Communications er</li>
+          <li>Tre produkter: kompetanse, coaching og strategisk partner</li>
+          <li>Metoden: samspill, takt, kalkyle og risiko</li>
+          <li>Verktøyene vi kan dele</li>
+          <li>Kort om hva metoden har gitt i reelle prosjekter</li>
+        </ul>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- PEAB I BILDER -->
+<section id="prosjekter" class="feature">
+  <div class="wrap rv">
+    <div class="eyebrow">PEAB i bilder</div>
+    <h2 class="sec">Dere bygger allerede <span class="g">over hele landet</span></h2>
+    <p class="lead">Fra signalbygg i nord til samspillsprosjekter i hele Norge. Vi vil ikke endre <i>hva</i> dere bygger — vi vil hjelpe dere bygge det enda smartere. Dra inn deres egne prosjektbilder under.</p>
+    <div class="gallery">
+      <figure class="gitem">
+        <div class="gframe"><image-slot id="peab-p1" shape="rounded" radius="9" src="assets/peab-havn.png" placeholder="Slipp inn bilde"></image-slot></div>
+        <figcaption>
+          <span class="gtag">Næring · sjøkant</span>
+          <b>Næringsbygg ved kaikanten</b>
+          <span class="gd">Moderne nærings- og havnebygg i glass, reist på kaikanten i Nord-Norge.</span>
+        </figcaption>
+      </figure>
+      <figure class="gitem">
+        <div class="gframe"><image-slot id="peab-p2" shape="rounded" radius="9" src="assets/peab-bolig-tre.png" placeholder="Slipp inn bilde"></image-slot></div>
+        <figcaption>
+          <span class="gtag">Bolig</span>
+          <b>Boliger i tre og glass</b>
+          <span class="gd">Leiligheter med romslige balkonger, tredetaljer og lyse fellesløsninger.</span>
+        </figcaption>
+      </figure>
+      <figure class="gitem">
+        <div class="gframe"><image-slot id="peab-p3" shape="rounded" radius="9" src="assets/peab-bolig-gronn.png" placeholder="Slipp inn bilde"></image-slot></div>
+        <figcaption>
+          <span class="gtag">Bolig · uterom</span>
+          <b>Bolig med gode uterom</b>
+          <span class="gd">Boligkvartal der gårdsrom, lekeplass og farger gir liv mellom husene.</span>
+        </figcaption>
+      </figure>
+      <figure class="gitem">
+        <div class="gframe"><image-slot id="peab-p4" shape="rounded" radius="9" src="assets/peab-sjofront.png" placeholder="Slipp inn bilde"></image-slot></div>
+        <figcaption>
+          <span class="gtag">Bolig &amp; næring · illustrasjon</span>
+          <b>Bydel ved sjøfronten</b>
+          <span class="gd">Bolig og næring som trapper seg opp mot sjøen — illustrasjon av et kommende prosjekt.</span>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- OM LEAN -->
+<section id="omlean">
+  <div class="wrap rv">
+    <div class="eyebrow">Hvem er Lean</div>
+    <h2 class="sec">Tidligere linjeledere — ikke <span class="g">typiske konsulenter</span></h2>
+    <p class="lead">Lean Communications er Norges største aktør for opplæring innen Lean og VDC til bygg- og anleggsbransjen, og vi samarbeider med NTNU. Hos oss jobber det ikke typiske konsulenter, men <b>tidligere linjeledere</b> som forstås like godt i styrerommet som «på gulvet». Mesteparten av tiden vår går til å hjelpe reelle prosjekter med å implementere Lean og VDC i praksis — resten bruker vi på kurs, opplæring og egen utvikling.</p>
+    <div class="statgrid">
+      <div class="stat"><div class="v">2009</div><div class="t">stiftet — over 15 år i bygg- og anleggsbransjen</div></div>
+      <div class="stat"><div class="v">900+</div><div class="t">bedrifter vi har jobbet med</div></div>
+      <div class="stat"><div class="v">17 500+</div><div class="t">sertifisert i Lean-metodikk</div></div>
+      <div class="stat"><div class="v">15</div><div class="t">prosjektledere 100 % ute i reelle prosjekter</div></div>
+    </div>
+    <div class="note">
+      <span class="nh">Hvorfor det betyr noe for PEAB</span>
+      Fordi vi lever i de virkelige prosjektene, fester kompetansen seg der den skal brukes — på byggeplassen og i prosjekteringen, ikke bare i et kursrom. Det er den samme erfaringen vi tar med oss inn til dere.
+    </div>
+  </div>
+</section>
+
+<!-- TJENESTER intro -->
+<section id="tjenester" class="feature">
+  <div class="wrap rv">
+    <div class="eyebrow">Våre tjenester</div>
+    <h2 class="sec">Tre måter vi kan jobbe <span class="g">med PEAB</span></h2>
+    <p class="lead">Vi kan komme inn på tre nivåer — fra ren kompetansebygging, via coaching av team og ledere, til et tett strategisk partnerskap der vi er med å forme PEAB sin egen måte å bygge på. De henger sammen, og de kan kombineres.</p>
+    <div class="grid3" style="margin-top:38px">
+      <div class="card"><h3 style="color:var(--greentext)">01 · Kompetanse</h3><p>Vi bygger kunnskapen og ferdighetene til folkene deres — innen VDC, takt, fasilitering og prosjektkultur.</p></div>
+      <div class="card"><h3 style="color:var(--greentext)">02 · Coaching</h3><p>Vi coacher team og ledere i smarte arbeidsmetodikker, på det nivået dere trenger det.</p></div>
+      <div class="card"><h3 style="color:var(--greentext)">03 · Strategisk partner</h3><p>Vi bidrar til å utvikle PEAB sin egen gjennomføringsmodell og arbeidsmetodikk — fra prinsipp til praksis.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUKT 01 -->
+<section id="p1">
+  <div class="wrap rv">
+    <div class="prod-head">
+      <div class="prod-no">01</div>
+      <div class="ph-t">
+        <div class="prod-kicker">Produkt 01</div>
+        <h2>Kompetanse- og kunnskapsutvikling</h2>
+      </div>
+    </div>
+    <p class="prod-lead">Vi utvikler kompetansen til folk i bygg- og anleggsbransjen — for <b>hele organisasjonen</b>, ikke bare ledelsen. Det handler om å gi prosjektene et felles språk og felles verktøy, slik at en ny arbeidsmetodikk faktisk fester seg.</p>
+    <div class="caps four">
+      <div class="cap"><div class="ci"><i data-lucide="layers"></i></div><h4>VDC</h4><p>Virtual Design and Construction — å knytte modell, prosess og mennesker sammen til ett produksjonssystem.</p></div>
+      <div class="cap"><div class="ci"><i data-lucide="gauge"></i></div><h4>Takt</h4><p>Taktplanlegging og -kontroll: framdrift bygd som et produksjonssystem, med fast rytme gjennom alle faser.</p></div>
+      <div class="cap"><div class="ci"><i data-lucide="presentation"></i></div><h4>Fasilitering</h4><p>Å lede gode prosesser og møter der riktig kompetanse kommer til orde — og beslutninger faktisk tas.</p></div>
+      <div class="cap"><div class="ci"><i data-lucide="heart-handshake"></i></div><h4>Metoder for prosjektkultur</h4><p>Konkrete grep for å bygge tillit, involvering og forbedringskultur i prosjektene.</p></div>
+    </div>
+    <div class="note">
+      <span class="nh">Slik kan det se ut hos PEAB</span>
+      Fra korte introduksjonskurs til skreddersydde program for et helt prosjektteam. Vi har sertifisert over 17 500 personer — og bygger erfaringen fra reelle prosjekter rett inn i opplæringen.
+    </div>
+  </div>
+</section>
+
+<!-- PRODUKT 02 -->
+<section id="p2" class="feature">
+  <div class="wrap rv">
+    <div class="prod-head">
+      <div class="prod-no">02</div>
+      <div class="ph-t">
+        <div class="prod-kicker">Produkt 02</div>
+        <h2>Coaching i smarte arbeidsmetodikker</h2>
+      </div>
+    </div>
+    <p class="prod-lead">Kunnskap blir til praksis først når noen følger den ut i prosjektet. Vi coacher PEAB i utvikling av smarte arbeidsmetodikker — og bidrar på <b>det nivået dere trenger</b>, med teamutvikling og kunnskapsoverføring.</p>
+    <div class="levels">
+      <span class="level"><b>Nivå</b> Individ</span>
+      <span class="level"><b>Nivå</b> Team</span>
+      <span class="level"><b>Nivå</b> Prosjekt</span>
+      <span class="level"><b>Nivå</b> Organisasjon</span>
+    </div>
+    <div class="caps four">
+      <div class="cap"><div class="ci"><i data-lucide="users"></i></div><h4>Teamutvikling</h4><p>Vi utvikler teamene slik at samarbeidet — ikke bare verktøyene — blir motoren i prosjektet.</p></div>
+      <div class="cap"><div class="ci"><i data-lucide="graduation-cap"></i></div><h4>Kunnskapsoverføring</h4><p>Vi overfører metode og kompetanse til deres egne folk, så dere blir selvgående over tid.</p></div>
+      <div class="cap"><div class="ci"><i data-lucide="compass"></i></div><h4>Praksisnær coaching</h4><p>Coaching der arbeidet skjer — i prosjekteringen og på byggeplassen, ikke bare i møterommet.</p></div>
+      <div class="cap"><div class="ci"><i data-lucide="lightbulb"></i></div><h4>Leder- og prosessstøtte</h4><p>Støtte til ledere og fasilitatorer som skal drive den nye måten å jobbe på videre selv.</p></div>
+    </div>
+    <div class="note">
+      <span class="nh">Slik kan det se ut hos PEAB</span>
+      Alt fra en coach som følger ett pilotprosjekt tett, til et program som løfter flere team parallelt. Målet er alltid det samme: at PEAB skal eie metoden selv.
+    </div>
+  </div>
+</section>
+
+<!-- PRODUKT 03 -->
+<section id="p3">
+  <div class="wrap rv">
+    <div class="prod-head">
+      <div class="prod-no">03</div>
+      <div class="ph-t">
+        <div class="prod-kicker">Produkt 03</div>
+        <h2>Strategisk partner for arbeidsmetodikk</h2>
+      </div>
+    </div>
+    <p class="prod-lead">Det tetteste samarbeidet: vi blir en strategisk partner som bidrar til å utvikle <b>PEAB sin egen måte</b> å gjøre arbeidsmetodikk på — med involverende planlegging som bærende prinsipp. Vi kan dele verktøyene vi har laget for å forbedre prosjekter, både i hverdagen og for å forsterke læring.</p>
+    <div class="caps" style="grid-template-columns:repeat(3,1fr)">
+      <div class="cap"><div class="ci"><i data-lucide="route"></i></div><h4>Involverende planlegging</h4><p>Planlegging som prinsipp — de som skal utføre arbeidet er med på å planlegge det.</p></div>
+      <div class="cap"><div class="ci"><i data-lucide="ruler"></i></div><h4>Prosjekteringsledelse &amp; -styring</h4><p>Styring av prosjekteringen mot modne, besluttede løsninger til rett tid.</p></div>
+      <div class="cap"><div class="ci"><i data-lucide="hard-hat"></i></div><h4>Produksjonsledelse &amp; -styring</h4><p>Produksjon styrt som et system — takt, kontrollområder og forutsigbar framdrift.</p></div>
+      <div class="cap"><div class="ci"><i data-lucide="workflow"></i></div><h4>Samspill, metode &amp; verktøy</h4><p>Metode for prosjektutvikling og samspill, med kostnad: dynamisk kalkyle og risikostyring.</p></div>
+      <div class="cap"><div class="ci"><i data-lucide="users"></i></div><h4>Teamutvikling</h4><p>Utvikling av teamene som skal bære den nye gjennomføringsmodellen.</p></div>
+      <div class="cap"><div class="ci"><i data-lucide="trending-up"></i></div><h4>Kvalitet &amp; modenhet</h4><p>Utvikling av planverk med taktplaner for alle faser — og kvaliteten i produktet med fokus på modenhetsutvikling.</p></div>
+    </div>
+    <div class="callout"><div class="q">Vi utvikler ikke metoden <em>for</em> PEAB — vi utvikler den <em>sammen med</em> PEAB, til den blir deres egen.</div></div>
+  </div>
+</section>
+
+<!-- METODEN -->
+<section id="metoden" class="feature green">
+  <div class="wrap rv">
+    <div class="eyebrow">Metoden &amp; verktøyene</div>
+    <h2 class="sec">Motoren under det <span class="g">hele</span></h2>
+    <p class="lead">Det som binder de tre produktene sammen er gjennomføringsmodellen vår. Den hviler på fire ting: hvordan vi organiserer oss, hvordan vi planlegger i takt, hvordan vi utvikler kostnad og modenhet — og hvordan vi styrer risiko før den treffer bygget.</p>
+
+    <!-- Samspillshjulet -->
+    <div class="org-wrap" style="margin-top:48px">
+      <div class="org-stage">
+        <div id="orgRing"></div>
+        <div class="org-deco"></div>
+        <div class="org-deco inner"></div>
+        <div class="org-hub" id="orgHub">Tverrfaglige<br>samspillsteam</div>
+      </div>
+      <div class="org-text">
+        <div class="prod-kicker">Organisering</div>
+        <h3>Samspills<span class="g">hjulet</span></h3>
+        <p>Ingen pyramide — et hjul. Tverrfaglige team rundt et felles sentrum, alle med samme oppgave: å optimalisere helheten i prosjektet. Beslutninger tas der arbeidet faktisk gjøres.</p>
+        <p>Beveg pekeren over et team for å se hvordan det henger sammen med sentrum.</p>
+      </div>
+    </div>
+
+    <!-- Takt -->
+    <div class="prod-kicker" style="margin-top:56px">Planverk &amp; takt</div>
+    <h3 style="font-size:clamp(24px,2.8vw,32px);font-weight:800;max-width:24ch;margin-bottom:4px">Framdrift bygd som et <span class="g">produksjonssystem</span></h3>
+    <div class="takt-card">
+      <div class="tk-legend" id="taktLegend"></div>
+      <div class="tk-grid" id="taktGrid"></div>
+      <p class="tk-cap">Forenklet takt: arbeidet deles i like store kontrollområder, og fagene går gjennom dem i fast rytme — som et tog gjennom stasjoner. Forutsigbart for alle, og lett å se når noe glipper. Vi utvikler planverk med taktplaner for <b>alle faser</b>: prosjektering, produksjon og ferdigstillelse.</p>
+    </div>
+
+    <!-- Kalkyle + risiko -->
+    <div class="viz-grid">
+      <div class="viz">
+        <h4>Dynamisk kalkyle &amp; modenhet</h4>
+        <p>Kostnaden gjettes ikke — den utvikles, beslutning for beslutning, ned mot en målpris. Samtidig stiger modenheten i løsningene. To kurver som skal møtes.</p>
+        <div class="viz-art">
+          <svg viewBox="0 0 300 200" role="img" aria-label="Kalkyle som faller mot målpris mens modenhet stiger">
+            <line x1="34" y1="170" x2="284" y2="170" stroke="#D9DDD8" stroke-width="1.5"></line>
+            <line x1="34" y1="20" x2="34" y2="170" stroke="#D9DDD8" stroke-width="1.5"></line>
+            <line x1="34" y1="120" x2="284" y2="120" stroke="#78BE20" stroke-width="2" stroke-dasharray="5 4"></line>
+            <polyline points="40,40 76,47 112,60 148,55 184,80 220,100 256,114 278,118" fill="none" stroke="#002A3A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></polyline>
+            <polyline points="40,158 76,150 112,134 148,116 184,92 220,70 256,50 278,42" fill="none" stroke="#33A6B1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></polyline>
+            <circle cx="278" cy="118" r="4.5" fill="#002A3A"></circle>
+            <circle cx="278" cy="42" r="4.5" fill="#33A6B1"></circle>
+          </svg>
+        </div>
+        <div class="viz-key">
+          <span><i style="background:#002A3A"></i>Kalkyle</span>
+          <span><i class="dash"></i>Målpris</span>
+          <span><i style="background:#33A6B1"></i>Modenhet</span>
+        </div>
+      </div>
+      <div class="viz">
+        <h4>Risikostyring</h4>
+        <p>Risiko styres før den treffer bygget — det som kan gå galt, koster alltid mest. Gjennom utviklingsfasen kvantifiseres og lukkes usikkerheten, og eksponeringen faller.</p>
+        <div class="viz-art">
+          <svg viewBox="0 0 300 200" role="img" aria-label="Risikoeksponering som faller gjennom utviklingsfasen">
+            <line x1="34" y1="170" x2="284" y2="170" stroke="#D9DDD8" stroke-width="1.5"></line>
+            <line x1="34" y1="20" x2="34" y2="170" stroke="#D9DDD8" stroke-width="1.5"></line>
+            <rect x="48"  y="44"  width="22" height="126" rx="3" fill="#E4022D" opacity="0.82"></rect>
+            <rect x="78"  y="62"  width="22" height="108" rx="3" fill="#E4022D" opacity="0.66"></rect>
+            <rect x="108" y="84"  width="22" height="86"  rx="3" fill="#d4a017" opacity="0.92"></rect>
+            <rect x="138" y="104" width="22" height="66"  rx="3" fill="#d4a017" opacity="0.78"></rect>
+            <rect x="168" y="122" width="22" height="48"  rx="3" fill="#9abf2e"></rect>
+            <rect x="198" y="138" width="22" height="32"  rx="3" fill="#78BE20"></rect>
+            <rect x="228" y="150" width="22" height="20"  rx="3" fill="#78BE20"></rect>
+            <rect x="258" y="158" width="22" height="12"  rx="3" fill="#78BE20"></rect>
+          </svg>
+        </div>
+        <div class="viz-key">
+          <span><i style="background:#E4022D"></i>Høy eksponering</span>
+          <span><i style="background:#d4a017"></i>Avtagende</span>
+          <span><i style="background:#78BE20"></i>Lukket / styrt</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Interaktiv gjennomføringsmodell -->
+    <div class="embed-wrap">
+      <div class="embed-head">
+        <div>
+          <div class="embed-kicker">Prøv selv</div>
+          <h3 class="embed-title">Den interaktive gjennomføringsmodellen</h3>
+          <p class="embed-lead">Tre moduler som utgjør kjernen i modellen. Klikk deg gjennom dem under — eller åpne i fullskjerm.</p>
+        </div>
+        <button class="embed-open" data-fs-open type="button">
+          <svg viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 0 0-2 2v3M16 3h3a2 2 0 0 1 2 2v3M8 21H5a2 2 0 0 1-2-2v-3M16 21h3a2 2 0 0 0 2-2v-3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Åpne i fullskjerm
+        </button>
+      </div>
+      <div class="pillars">
+        <div class="pillar" data-fs-module="A" tabindex="0" role="button" aria-label="Åpne modul: Organisering">
+          <div class="pnum">01</div>
+          <h4>Organisering</h4>
+          <p>Sirkelen, ikke pyramiden. Prosjektet i sentrum, tverrfaglige team rundt.</p>
+          <span class="popen">Åpne modulen</span>
+        </div>
+        <div class="pillar" data-fs-module="B" tabindex="0" role="button" aria-label="Åpne modul: Planverk og takt">
+          <div class="pnum">02</div>
+          <h4>Planverk &amp; takt</h4>
+          <p>Én felles takt for prosjektering, produksjon og ferdigstillelse.</p>
+          <span class="popen">Åpne modulen</span>
+        </div>
+        <div class="pillar" data-fs-module="C" tabindex="0" role="button" aria-label="Åpne modul: Kalkyle og risiko">
+          <div class="pnum">03</div>
+          <h4>Kalkyle &amp; risiko</h4>
+          <p>Kalkyle etter modenhet, risiko styrt mot en trygg målpris.</p>
+          <span class="popen">Åpne modulen</span>
+        </div>
+      </div>
+      <div class="embed-frame" aria-hidden="true">
+        <button class="embed-fs-close" data-fs-close type="button">
+          <svg viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Lukk
+        </button>
+        <iframe data-src="gjennomforingsmodellen.html" title="Gjennomføringsmodellen — interaktiv demo" loading="lazy"></iframe>
+      </div>
+    </div>
+
+    <!-- Verktøy vi deler -->
+    <div class="prod-kicker" style="margin-top:56px">Verktøy vi deler</div>
+    <h3 style="font-size:clamp(24px,2.8vw,32px);font-weight:800;max-width:26ch;margin-bottom:6px">Verktøyene vi har laget for å <span class="g">forbedre prosjekter</span></h3>
+    <p class="lead" style="margin-bottom:8px">Mye av det vi bruker er vi glade for å dele — enten for å gjøre hverdagen i prosjektet lettere, eller for å forsterke læringen underveis.</p>
+    <div class="grid3" style="margin-top:30px">
+      <div class="card toolcard">
+        <span class="tl">Kostnad &amp; risiko</span>
+        <h3>Dynamisk kalkyle</h3>
+        <p>Vårt verktøy for å utvikle kostnad mot målpris — med modenhets- og risikostyring innebygd.</p>
+        <a class="btn ghost" href="https://www.leancommunications.no" target="_blank" rel="noopener">Les mer<svg viewBox="0 0 24 24"><path d="M7 17 17 7M7 7h10v10" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+      <div class="card toolcard">
+        <span class="tl">Framdrift</span>
+        <h3>Taktplan</h3>
+        <p>Egenutviklet verktøy for taktplanlegging og -kontroll, for alle faser i prosjektet.</p>
+        <a class="btn ghost" href="https://www.leancommunications.no" target="_blank" rel="noopener">Les mer<svg viewBox="0 0 24 24"><path d="M7 17 17 7M7 7h10v10" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+      <div class="card toolcard">
+        <span class="tl">Læring</span>
+        <h3>Verktøy &amp; kurs</h3>
+        <p>Gratis digitale verktøy og kurs — bl.a. introduksjonskurset «Hørt om VDC?».</p>
+        <a class="btn" href="https://www.leancommunications.no" target="_blank" rel="noopener">Til leancommunications.no<svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOLKA -->
+<section id="folka" class="people">
+  <div class="wrap rv">
+    <div class="eyebrow">Det viktigste</div>
+    <p class="q">Alle metoder og all teknologi gir <em>null verdi</em> uten at du får med deg folka. De er alltid viktigst.</p>
+    <p class="body">Modeller, takt og kalkyler er bare verktøy. Verdien ligger i hendene og hodene som bruker dem. Derfor handler alt vi gjør — kompetanse, coaching og partnerskap — like mye om mennesker som om metode.</p>
+  </div>
+</section>
+
+<!-- BEVIS -->
+<section id="bevis">
+  <div class="wrap rv">
+    <div class="eyebrow">Kort om resultatene</div>
+    <h2 class="sec">Metoden er <span class="g">prøvd ut</span> — i full skala</h2>
+    <p class="lead">Vi tar ikke med dette for å fortelle gamle historier, men som bevis på at måten å jobbe på faktisk leverer. Et par eksempler vi har vært tett på.</p>
+
+    <div class="results">
+      <div class="reb">A-blokka, nytt regjeringskvartal · resultater ved overlevering</div>
+      <h3>Da kvalitet, kostnad og tid ble <span style="color:var(--lime)">utviklet</span> — ikke gjettet</h3>
+      <div class="res-grid">
+        <div class="res"><div class="rv">100 %</div><div class="rl">Milepæler levert</div><div class="rs">Hver eneste milepæl nådd</div></div>
+        <div class="res"><div class="rv">1 mnd</div><div class="rl">Foran plan</div><div class="rs">Overlevert tidligere enn planlagt</div></div>
+        <div class="res"><div class="rv">3 %</div><div class="rl">Under budsjett</div><div class="rs">Disiplinert kostnadsstyring</div></div>
+        <div class="res"><div class="rv">20+</div><div class="rl">Kontrollområder</div><div class="rs">Styrt med takt samtidig</div></div>
+      </div>
+    </div>
+
+    <div class="proof-cards">
+      <div class="proof">
+        <div class="pk">Prosjekt · IPD</div>
+        <h4>A-blokka (K204)</h4>
+        <p>Et samspillsprosjekt i det nye regjeringskvartalet der entreprenør, byggherre og fag utviklet løsningen sammen mot en felles målpris — drevet med jernhardt fokus på kvalitet, kostnad og tid.</p>
+        <div class="pf"><span>Samspill / IPD</span><span>Dynamisk kalkyle</span><span>Taktplan</span></div>
+      </div>
+      <div class="proof">
+        <div class="pk">Prosjekt · Samspill</div>
+        <h4>Nye Bodø lufthavn</h4>
+        <p>Den samme tankegangen løftet til en hel flyplass: en samspillskontrakt der utviklingsfase, målpris og verktøykassa fra metoden brukes før spaden settes i jorda.</p>
+        <div class="pf"><span>Utviklingsfase</span><span>Målpris</span><span>Risikostyring</span></div>
+      </div>
+    </div>
+    <div class="note">
+      <span class="nh">Og dere er allerede i gang</span>
+      PEAB bygger flysiden på <b>Nye Bodø lufthavn</b> i samspill med Avinor og COWI. Det er nettopp denne måten å jobbe på — utviklingsfase, målpris og taktstyrt produksjon — vi kjenner ut og inn, og gjerne bidrar med videre.
+    </div>
+  </div>
+</section>
+
+<!-- KONTAKT -->
+<section id="kontakt" class="feature">
+  <div class="wrap rv">
+    <div class="cta-box">
+      <div class="eyebrow">Ta praten videre</div>
+      <h2>La oss finne ut hvor vi kan bidra mest</h2>
+      <p class="lead">Hvis noe av dette traff, tar vi gjerne en ny runde — gjerne med utgangspunkt i et konkret prosjekt eller en ambisjon dere har. Ta kontakt med en av oss, så finner vi en tid.</p>
+      <div class="contacts">
+        <div class="pc">
+          <div class="who">Øyvind Børstad</div>
+          <div class="role">Konsulent og partner</div>
+          <div class="methods">
+            <a class="method" href="mailto:oyvindb@leancommunications.no">
+              <span class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>
+              <span class="mt"><b>oyvindb@leancommunications.no</b><small>Send en e-post</small></span>
+            </a>
+            <a class="method" href="tel:+4797700104">
+              <span class="ic"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></span>
+              <span class="mt"><b>+47 977 00 104</b><small>Ring eller send melding</small></span>
+            </a>
+          </div>
+        </div>
+        <div class="pc">
+          <div class="who">Bjørn Einar Aga</div>
+          <div class="role">Daglig leder, Lean Communications</div>
+          <div class="methods">
+            <a class="method" href="mailto:bjorna@leancommunications.no">
+              <span class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>
+              <span class="mt"><b>bjorna@leancommunications.no</b><small>Send en e-post</small></span>
+            </a>
+            <a class="method" href="tel:+4792299572">
+              <span class="ic"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></span>
+              <span class="mt"><b>+47 922 99 572</b><small>Ring eller send melding</small></span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <img class="logo" src="assets/logo-lc.png" alt="Lean Communications">
+      <p class="tag">Norges største aktør for opplæring innen Lean og VDC til bygg- og anleggsbransjen. Samarbeider med NTNU. Kontorer i Oslo og Bergen.</p>
+    </div>
+    <p class="fnote">Laget til ledelsen i PEAB Bygg og PEAB Eiendomsutvikling etter kaffeprat, juni 2026. Prosjektfakta fra A-blokka K204 (regjeringskvartalet) og Nye Bodø lufthavn.</p>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/lucide@latest"></script>
+<script src="image-slot.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

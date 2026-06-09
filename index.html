@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Lean Communications — for PEAB</title>
+<meta name="description" content="En privat side fra Lean Communications til ledelsen i PEAB Bygg og PEAB Eiendomsutvikling.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,500;1,700&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blue:#002A3A; --blue80:#335564; --blue60:#5a7681;
+    --green:#78BE20; --greentext:#8ed12f; --greendk:#4f8a13;
+    --teal:#33A6B1; --lime:#CDD751;
+    --paper:#FFFFFF; --rule:rgba(255,255,255,.16); --rule-strong:rgba(255,255,255,.32);
+    --dur:.22s; --ease:cubic-bezier(.2,.6,.2,1);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{
+    font-family:'Jost',sans-serif;color:#fff;line-height:1.6;font-size:17px;font-weight:400;
+    -webkit-font-smoothing:antialiased;
+    min-height:100svh;display:flex;flex-direction:column;background:#001620;
+  }
+  h1,h2,h3,.display{font-family:'Barlow Semi Condensed',sans-serif;line-height:1.02;letter-spacing:-.01em}
+  ::selection{background:var(--green);color:#001620}
+  :focus-visible{outline:3px solid rgba(120,190,32,.55);outline-offset:3px;border-radius:4px}
+  img{max-width:100%;display:block}
+
+  .bg{position:fixed;inset:0;z-index:0;overflow:hidden}
+  .bg img{width:100%;height:100%;object-fit:cover;object-position:center 28%}
+  .bg::after{content:"";position:absolute;inset:0;
+    background:
+      linear-gradient(95deg, rgba(0,16,23,.82) 0%, rgba(0,16,23,.55) 38%, rgba(0,16,23,.12) 72%, rgba(0,16,23,0) 100%),
+      linear-gradient(180deg, rgba(0,16,23,.12) 0%, rgba(0,16,23,0) 32%, rgba(0,16,23,.30) 68%, rgba(0,16,23,.88) 100%);
+  }
+
+  header{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;
+    padding:26px clamp(20px,5vw,56px)}
+  header .logo{height:30px;width:auto;opacity:.96}
+  header .badge{font-family:'Barlow Semi Condensed';text-transform:uppercase;letter-spacing:.14em;
+    font-weight:700;font-size:11.5px;color:rgba(255,255,255,.55);border:1px solid var(--rule);border-radius:999px;padding:7px 14px}
+
+  main{position:relative;z-index:2;flex:1;display:flex;align-items:center;justify-content:center;
+    padding:24px clamp(20px,5vw,56px) 56px}
+  .stage{width:100%;max-width:600px}
+
+  .eyebrow{font-family:'Barlow Semi Condensed';text-transform:uppercase;letter-spacing:.18em;
+    font-weight:700;font-size:12.5px;color:#aee06a;margin-bottom:22px;display:flex;align-items:center;gap:12px}
+  .eyebrow::before{content:"";width:32px;height:3px;background:var(--green);display:inline-block;border-radius:2px}
+
+  h1{font-size:clamp(38px,6.6vw,68px);font-weight:800;letter-spacing:-.02em;margin-bottom:22px;
+    text-wrap:balance;text-shadow:0 2px 30px rgba(0,16,23,.5)}
+  h1 .g{color:var(--greentext);font-style:italic;font-weight:700}
+
+  .lead{font-size:clamp(16px,1.7vw,18.5px);color:rgba(255,255,255,.86);font-weight:300;
+    max-width:54ch;margin-bottom:18px;text-wrap:pretty;text-shadow:0 1px 16px rgba(0,16,23,.55)}
+  .lead b{font-weight:600;color:#fff}
+  .purpose{font-size:15.5px;color:rgba(255,255,255,.6);font-weight:300;font-style:italic;
+    max-width:52ch;margin-bottom:30px}
+
+  .dash{height:0;border:none;border-top:2px dashed rgba(255,255,255,.22);max-width:560px;margin:0 0 28px}
+
+  .gate{max-width:480px}
+  .gate-label{display:flex;align-items:center;gap:9px;font-family:'Barlow Semi Condensed';
+    text-transform:uppercase;letter-spacing:.1em;font-weight:600;font-size:12.5px;
+    color:rgba(255,255,255,.74);margin-bottom:12px}
+  .gate-label svg{width:15px;height:15px;stroke:var(--green)}
+  .field{display:flex;gap:10px;flex-wrap:wrap}
+  .field input{
+    flex:1;min-width:200px;font-family:'Jost',sans-serif;font-size:16px;color:#fff;
+    background:rgba(255,255,255,.06);border:1px solid var(--rule-strong);border-radius:6px;
+    padding:14px 16px;transition:all var(--dur) var(--ease);letter-spacing:.02em}
+  .field input::placeholder{color:rgba(255,255,255,.42)}
+  .field input:focus{border-color:var(--green);background:rgba(255,255,255,.1);outline:none}
+  .field button{
+    font-family:'Barlow Semi Condensed';font-weight:700;font-size:15px;letter-spacing:.03em;
+    text-transform:uppercase;color:var(--blue);background:var(--green);border:none;border-radius:6px;
+    padding:14px 24px;cursor:pointer;display:inline-flex;align-items:center;gap:9px;
+    transition:all var(--dur) var(--ease);white-space:nowrap}
+  .field button svg{width:17px;height:17px;stroke:currentColor;stroke-width:2.4}
+  .field button:hover{background:#86cd24;transform:translateY(-1px)}
+  .field button:active{transform:translateY(1px)}
+  .field button:disabled{opacity:.55;cursor:default;transform:none}
+
+  .msg{min-height:22px;margin-top:14px;font-size:14.5px;color:#ff8a8a;font-weight:400;
+    opacity:0;transform:translateY(-3px);transition:opacity var(--dur),transform var(--dur)}
+  .msg.show{opacity:1;transform:none}
+  .help{margin-top:8px;font-size:14px;color:rgba(255,255,255,.66);font-weight:300;line-height:1.55;
+    max-height:0;overflow:hidden;opacity:0;transition:all .32s var(--ease)}
+  .help.show{max-height:120px;opacity:1;margin-top:10px}
+  .help a{color:#aee06a;text-decoration:none;border-bottom:1px solid rgba(174,224,106,.4);
+    transition:border-color var(--dur),color var(--dur);white-space:nowrap}
+  .help a:hover{color:#c6f088;border-color:#c6f088}
+  .lockhint{margin-top:10px;font-size:13px;color:rgba(255,255,255,.45);font-weight:300}
+
+  .gate.shake{animation:shake .42s var(--ease)}
+  @keyframes shake{10%,90%{transform:translateX(-2px)}30%,70%{transform:translateX(5px)}50%{transform:translateX(-7px)}}
+
+  footer{position:relative;z-index:2;padding:18px clamp(20px,5vw,56px) 26px;
+    font-size:12.5px;color:rgba(255,255,255,.42);font-weight:300;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+  footer .dot{width:3px;height:3px;border-radius:50%;background:rgba(255,255,255,.32)}
+
+  .stage>*{opacity:0;transform:translateY(14px);animation:rise .6s var(--ease) forwards}
+  .stage .eyebrow{animation-delay:.05s}
+  .stage h1{animation-delay:.13s}
+  .stage .lead{animation-delay:.21s}
+  .stage .purpose{animation-delay:.27s}
+  .stage .dash{animation-delay:.33s}
+  .stage .gate{animation-delay:.39s}
+  @keyframes rise{to{opacity:1;transform:none}}
+  @media(prefers-reduced-motion:reduce){.stage>*{animation:none;opacity:1;transform:none}}
+
+  @media(max-width:560px){
+    header{padding:18px 20px}
+    .field button{flex:1}
+  }
+</style>
+</head>
+<body>
+
+<div class="bg">
+  <img src="assets/bodo-aurora.jpg" alt="">
+</div>
+
+<header>
+  <img class="logo" src="assets/logo-mark-white.png" alt="Lean Communications">
+  <span class="badge">Privat · for PEAB</span>
+</header>
+
+<main>
+  <div class="stage">
+    <div class="eyebrow">Lean Communications · for PEAB</div>
+    <h1>Etter kaffepraten —<br>litt om <span class="g">oss</span></h1>
+    <p class="lead">En privat side til ledelsen i <b>PEAB Bygg</b> og <b>PEAB Eiendomsutvikling</b> — om hvem vi er i Lean Communications, og hva vi kan bidra med av tjenester og metoder.</p>
+    <p class="purpose">Skriv inn passordet vi avtalte, så er du inne.</p>
+    <hr class="dash">
+    <form class="gate" id="gate" autocomplete="off">
+      <div class="gate-label">
+        <svg viewBox="0 0 24 24" fill="none"><rect x="4" y="11" width="16" height="9" rx="2" stroke-width="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3" stroke-width="2"/></svg>
+        <span>Skriv inn passordet for å fortsette</span>
+      </div>
+      <div class="field">
+        <input type="password" id="pw" autocomplete="current-password" spellcheck="false" placeholder="Passord">
+        <button type="submit" id="go">
+          <span>Åpne</span>
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+      <div class="msg" id="msg"></div>
+      <div class="help" id="help"></div>
+      <div class="lockhint">Denne siden er privat. Passordet ble delt i kaffepraten.</div>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <span>Lean Communications</span>
+  <span class="dot"></span>
+  <span>for PEAB Bygg &amp; PEAB Eiendomsutvikling</span>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var HASH="279ceb120758aa63076d65e8050cab1aab8d401816f03d98b50926a98b7e20af";
+  var SALT="peab2026-lc-salt-v1";
+
+  var ERR="Feil passord — prøv igjen.";
+  var ERRHELP="Får du det ikke til? <a href=\"mailto:oyvindb@leancommunications.no\">Send Øyvind en e-post</a> eller ring <a href=\"tel:+4797700104\">+47 977 00 104</a>.";
+
+  async function derive(pw){
+    var enc=new TextEncoder();
+    var keyMat=await crypto.subtle.importKey("raw",enc.encode(pw),"PBKDF2",false,["deriveBits"]);
+    var bits=await crypto.subtle.deriveBits(
+      {name:"PBKDF2",salt:enc.encode(SALT),iterations:150000,hash:"SHA-256"},keyMat,256);
+    return Array.from(new Uint8Array(bits)).map(function(x){return x.toString(16).padStart(2,"0");}).join("");
+  }
+
+  var form=document.getElementById('gate');
+  var pw=document.getElementById('pw');
+  var go=document.getElementById('go');
+  var msg=document.getElementById('msg');
+  var help=document.getElementById('help');
+  var gate=form;
+
+  function fail(){
+    msg.textContent=ERR; msg.classList.add('show');
+    help.innerHTML=ERRHELP; help.classList.add('show');
+    gate.classList.remove('shake'); void gate.offsetWidth; gate.classList.add('shake');
+    pw.value=""; pw.focus();
+  }
+
+  pw.addEventListener('input',function(){
+    if(msg.classList.contains('show')){ msg.classList.remove('show'); help.classList.remove('show'); }
+  });
+
+  form.addEventListener('submit',async function(ev){
+    ev.preventDefault();
+    var val=pw.value.trim();
+    if(!val){ pw.focus(); return; }
+    msg.classList.remove('show'); help.classList.remove('show');
+    go.disabled=true; go.querySelector('span').textContent="Sjekker …";
+    var ok=false;
+    try{ ok=(await derive(val))===HASH; }catch(e){ ok=false; }
+    if(ok){
+      try{ sessionStorage.setItem("peab-auth",HASH); }catch(e){}
+      location.href="tjenester.html";
+    }else{
+      go.disabled=false; go.querySelector('span').textContent="Åpne";
+      fail();
+    }
+  });
+
+  pw.focus();
+})();
+</script>
+</body>
+</html>
