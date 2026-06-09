@@ -137,6 +137,24 @@ nav .links a.active::after{content:"";position:absolute;left:0;right:0;bottom:-8
   text-transform:uppercase;color:var(--greendk);margin-bottom:10px}
 .feature .note,.feature .sidecard{background:#fff}
 
+/* ---- samspill steps (ledelse → byggeplass) ---- */
+.steps{display:flex;flex-direction:column;gap:14px;margin-top:36px}
+.step{display:grid;grid-template-columns:auto 1fr;gap:26px;align-items:start;background:var(--paper);
+  border:1px solid var(--rule);border-radius:14px;padding:24px 30px;box-shadow:var(--shadow);
+  transition:border-color var(--dur) var(--ease),box-shadow var(--dur) var(--ease),transform var(--dur) var(--ease)}
+.feature .step{background:#fff}
+.step:hover{border-color:#d4dbd2;box-shadow:var(--shadow-lg);transform:translateX(4px)}
+.step .sn{font-family:'Barlow Semi Condensed';font-weight:800;font-size:34px;color:var(--green);line-height:1;
+  min-width:44px;font-variant-numeric:tabular-nums;padding-top:2px}
+.step .stag{display:inline-block;font-family:'Barlow Semi Condensed';font-weight:700;font-size:11px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--tealdark);background:var(--tint);border:1px solid var(--rule);
+  border-radius:999px;padding:4px 12px;margin-bottom:11px}
+.step h4{font-family:'Barlow Semi Condensed';font-weight:700;font-size:21px;color:var(--ink);margin-bottom:6px;line-height:1.12}
+.step p{font-size:15.5px;font-weight:300;color:var(--body);line-height:1.55;max-width:72ch}
+.step p b{font-weight:600;color:var(--ink)}
+.feature .step .stag{background:var(--tint)}
+@media(max-width:640px){.step{grid-template-columns:1fr;gap:8px;padding:22px 24px}}
+
 /* ---- callout / pull quote ---- */
 .callout{background:var(--paper);border:1px solid var(--rule);border-left:5px solid var(--green);border-radius:14px;padding:28px 32px;box-shadow:var(--shadow);margin-top:30px}
 .callout .q{font-family:'Barlow Semi Condensed';font-weight:700;font-size:23px;line-height:1.2;color:var(--ink);max-width:60ch}
